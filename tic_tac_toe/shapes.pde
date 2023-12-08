@@ -1,15 +1,28 @@
-void circle(){
-  ellipse(82, 82, 166, 166);
+ void drawMove(int row, int col, int size) {
+  float x = col * size + size / 2;
+  float y = row * size + size / 2;
+
+  if (board[row * 3 + col] == 1) {
+    // Draw 'X' for player 1
+    drawX(x, y, size);
+  } else {
+    // Draw 'O' for player 2
+    drawO(x, y, size);
+  }
 }
 
-void cross(){
-  line(0, 0, 166, 166);
-  line(166, 0, 0, 166);
+void circle(float x, float y, float diameter) {
+  ellipse(x, y, diameter, diameter);
 }
 
-void gameBoard(){
-  line(0, 166, 500, 166); // horizontal
-  line(0, 332, 500, 332); // horizontal
-  line(166, 0, 166, 500); // vertical
-  line(332, 0, 332, 500); // vertical
+void cross(float x, float y, float size) {
+  line(x, y, x + size, y + size);
+  line(x, y + size, x + size, y);
+}
+
+void gameBoard() {
+  line(0, height / 3, width, height / 3); // horizontal
+  line(0, (height / 3) * 2, width, (height / 3) * 2); // horizontal
+  line(width / 3, 0, width / 3, height); // vertical
+  line((width / 3) * 2, 0, (width / 3) * 2, height); // vertical
 }
