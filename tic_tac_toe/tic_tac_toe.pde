@@ -7,4 +7,3 @@ void setup() {
 void draw() {
   gameBoard();
 }
-

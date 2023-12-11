@@ -3,10 +3,10 @@
   float y = row * size + size / 2;
 
   if (board[row * 3 + col] == 1) {
-    // Draw 'X' for player 1
+    // Draws an 'X' for computer
     drawX(x, y, size);
   } else {
-    // Draw 'O' for player 2
+    // Draws an 'O' for user
     drawO(x, y, size);
   }
 }

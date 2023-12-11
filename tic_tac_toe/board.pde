@@ -1,7 +1,7 @@
- import java.util.Random;
+import java.util.Random;
 
 int[] board = new int[9];
-int currentPlayer = 1;
+int currentPlayer = 1; // one is computer, 2 is user
 int userInput;
 int randomNumber;
 int userChoice;
@@ -23,14 +23,14 @@ void keyPressed() {
           println("You win!");
         }
         println("Now exiting the game...");
-        gameActive = false; // Stop further user input
+        gameActive = false;
       } else if (isBoardFull()) {
         println("It's a tie!");
         println("Now exiting the game...");
-        gameActive = false; // Stop further user input
+        gameActive = false;
       } else {
         currentPlayer = 3 - currentPlayer;
-        println("Game is still playing."); // Print here after user move
+        println("Game is still playing.");
         computerRandom();
       }
     } else {
@@ -44,7 +44,7 @@ void keyPressed() {
 
 void computerRandom() {
   if (!gameActive) {
-    return; // Stop the computer's turn if the game is already stopped
+    return;
   }
 
  Random rand = new Random();
@@ -66,14 +66,14 @@ void computerRandom() {
       println("You win!");
     }
     println("Now stopping the game.");
-    gameActive = false; // Stop further user input
+    gameActive = false;
   } else if (isBoardFull()) {
     println("It's a tie!");
     println("Now stopping the game.");
-    gameActive = false; // Stop further user input
+    gameActive = false;
   } else {
     currentPlayer = 3 - currentPlayer;
-    println("Game is still continuing."); // Print here after computer move
+    println("Game is still continuing.");
   }
 }
 
@@ -99,7 +99,6 @@ void drawO(float x, float y, float size) {
 }
 
 boolean checkWin() {
-  // Check rows, columns, and diagonals for a win
   for (int i = 0; i < 3; i++) {
     if (checkLine(i, 0, i, 2) || checkLine(0, i, 2, i)) {
       return true;
